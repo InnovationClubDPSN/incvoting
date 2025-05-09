@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innovation Club Member Poll</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  
+  <div class="container">
+    <h1>INNOVATION CLUB MEMBER POLL</h1>
+    <div class="top-bar">
+      <a href="rules.html" class="rules-button">View Voting Rules</a>
+    </div>
+    <form action="https://formspree.io/f/meogkdng" method="POST" id="pollForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="class_section">Class and Section</label>
+      <input type="text" id="class_section" name="class_section" required />
+
+      <label for="admission_number">Admission Number</label>
+      <input type="text" id="admission_number" name="admission_number" required />
+
+      <label for="vote">Your Vote</label>
+      <p id="vote-question" class="subtitle"></p>
+      <select name="vote" id="vote-dropdown" required></select>
+
+      <label for="remarks">Remarks</label>
+      <textarea id="remarks" name="remarks"></textarea>
+
+      <button type="submit">SUBMIT</button>
+    </form>
+  </div>
+  <div class="watermark">
+    <img src="logo.png" alt="Innovation Club Logo" />
+  </div>
+</body>
+</html>

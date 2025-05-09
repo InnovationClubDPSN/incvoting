@@ -1,0 +1,85 @@
+body {
+  background-color: #0b0f2a;
+  color: #00ffe7;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+.container {
+  width: 90%;
+  max-width: 500px;
+  background: #12163c;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ffe7;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+label {
+  margin-top: 1rem;
+  display: block;
+}
+input, textarea, select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: none;
+  border-radius: 6px;
+  background: #0e1330;
+  color: #00ffe7;
+}
+.subtitle {
+  font-size: 0.9rem;
+  color: #a2ffe7;
+  margin-bottom: 0.5rem;
+}
+button {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #00ffe7;
+  color: #0b0f2a;
+  font-weight: bold;
+}
+
+.watermark {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  opacity: 0.2; /* Adjust opacity for watermark effect */
+  z-index: 1000;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8)); /* Glow effect */
+}
+
+.watermark img {
+  max-width: 150px; /* Adjust size as needed */
+  height: auto;
+}
+
+.top-bar {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.rules-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.rules-button:hover {
+  background-color: #0056b3;
+}

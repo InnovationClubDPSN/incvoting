@@ -8,14 +8,14 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  
   <div class="container">
     <h1>INNOVATION CLUB MEMBER POLL</h1>
     <div class="top-bar">
       <a href="rules.html" class="rules-button">View Voting Rules</a>
     </div>
-    <form action="https://formspree.io/f/meogkdng" method="POST" id="pollForm">
-    <input type="hidden" name="_redirect" value="https://innovationclubvotingwebsite.netlify.app/thankyou.html" />
+
+    <!-- 🌐 Now using Make webhook -->
+    <form action="https://hook.eu2.make.com/1vkuqbvwy930t1pq319o6hfl8tlk6c06" method="POST" id="pollForm">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" required />
 
@@ -32,13 +32,17 @@
       <label for="remarks">Remarks</label>
       <textarea id="remarks" name="remarks"></textarea>
 
+      <!-- 🛡️ hCaptcha widget -->
       <div class="h-captcha" data-sitekey="ES_a6494e63599343d79fdc206e6b3d911c"></div>
 
       <button type="submit">SUBMIT</button>
     </form>
   </div>
+
   <div class="watermark">
     <img src="logo.png" alt="Innovation Club Logo" />
   </div>
+
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </body>
 </html>

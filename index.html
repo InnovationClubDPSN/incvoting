@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Innovation Club Voting</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" style="text-align: center;">
+    <h1 style="font-size: 3rem;">INNOVATION CLUB</h1>
+    <h2 style="margin-top: 1rem; font-size: 2rem;">Voting Website</h2>
+
+    <div id="question" class="subtitle" style="margin-top: 2rem; font-size: 1.2rem;"></div>
+    <div id="options" class="subtitle" style="margin: 1rem 0; white-space: pre-wrap;"></div>
+
+    <button onclick="window.location.href='vote.html'" style="font-size: 1.5rem; padding: 1rem 2rem; margin-top: 2rem;">
+      VOTE
+    </button>
+  </div>
+
+  <script>
+    // Load question and options from questions.json
+    fetch('questions.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('question').textContent = data.question;
+        document.getElementById('options').textContent = data.options.join('\\t');
+      });
+
+    // Add watermark logo at top-right
+    const watermark = document.createElement('div');
+    watermark.style.position = 'fixed';
+    watermark.style.top = '10px';
+    watermark.style.right = '10px';
+    watermark.style.width = '80px';
+    watermark.style.height = '80px';
+    watermark.style.background = "url('logo.png') no-repeat center/contain";
+    watermark.style.opacity = '0.2';
+    watermark.style.zIndex = '1000';
+    watermark.style.pointerEvents = 'none';
+    document.body.appendChild(watermark);
+  </script>
+</body>
+</html>

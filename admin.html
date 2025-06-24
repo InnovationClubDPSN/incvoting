@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel – Innovation Club</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    table {
+      width: 100%;
+      margin-top: 2rem;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 0.8rem;
+      border-bottom: 1px solid #00ffe7;
+      color: #00ffe7;
+    }
+    th {
+      text-align: left;
+    }
+    a {
+      color: #a2ffe7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="auth-container">
+    <h1>🔐 Admin Access</h1>
+    <p class="subtitle">Enter the admin password to view internal links</p>
+    <input type="password" id="passwordInput" placeholder="Enter password..." />
+    <button onclick="checkPassword()">LOGIN</button>
+  </div>
+
+  <div class="container hidden" id="admin-panel">
+    <h1>🛠️ Innovation Club Admin Panel</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Home</td><td><a href="index.html" target="_blank">index.html</a></td></tr>
+        <tr><td>Voting Form</td><td><a href="vote.html" target="_blank">vote.html</a></td></tr>
+        <tr><td>Thank You</td><td><a href="thankyou.html" target="_blank">thankyou.html</a></td></tr>
+        <tr><td>Closed</td><td><a href="closed.html" target="_blank">closed.html</a></td></tr>
+        <tr><td>Already Voted</td><td><a href="alreadyvoted.html" target="_blank">alreadyvoted.html</a></td></tr>
+        <tr><td>Not Found</td><td><a href="notfound.html" target="_blank">notfound.html</a></td></tr>
+        <tr><td>Rules</td><td><a href="rules.html" target="_blank">rules.html</a></td></tr>
+        <tr><td>Admin Panel</td><td><a href="admin.html" target="_blank">admin.html</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="watermark">
+    <img src="logo.png" alt="Innovation Club Logo" />
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === "admin") {
+        document.getElementById("auth-container").classList.add("hidden");
+        document.getElementById("admin-panel").classList.remove("hidden");
+      } else {
+        alert("Incorrect password. Access denied.");
+      }
+    }
+  </script>
+</body>
+</html>

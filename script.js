@@ -32,7 +32,8 @@ function autofillFromQueryParams() {
   const params = new URLSearchParams(window.location.search);
 
   const name = params.get("name");
-  const classSection = params.get("class_section");
+  const cls = params.get("class");
+  const section = params.get("section");
   const admissionNumber = params.get("admission_number");
 
   if (name) {

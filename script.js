@@ -40,10 +40,14 @@ function autofillFromQueryParams() {
     document.getElementById("name").value = decodeURIComponent(name);
   }
 
-  if (classSection) {
-    document.getElementById("class_section").value = decodeURIComponent(classSection);
+  if (cls) {
+    document.getElementById("class").value = decodeURIComponent(cls);
   }
 
+if (section) {
+    document.getElementById("section").value = decodeURIComponent(section);
+  }
+  
   if (admissionNumber) {
     document.getElementById("admission_number").value = decodeURIComponent(admissionNumber);
   }

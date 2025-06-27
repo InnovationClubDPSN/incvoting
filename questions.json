@@ -1,6 +1,6 @@
 {
   "active": true,
   "question": "Which projects are you interested in participating in?",
-  "multiple": true,
+  "multiple": false,
   "options": ["Robotics", "UI Design", "App Development", "Cryptography", "AI/ML"]
 }

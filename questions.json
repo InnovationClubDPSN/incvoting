@@ -1,6 +1,6 @@
-
 {
   "active": true,
-  "question": "Who do you vote for as club president?",
-  "options": ["Alice", "Bob", "Charlie"]
+  "question": "Which projects are you interested in participating in?",
+  "multiple": true,
+  "options": ["Robotics", "UI Design", "App Development", "Cryptography", "AI/ML"]
 }

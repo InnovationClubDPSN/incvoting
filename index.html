@@ -1,103 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="/logo.png">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Innovation Club Member Poll</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Innovation Club Voting</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>INNOVATION CLUB MEMBER POLL</h1>
-    <div class="top-bar">
-      <a href="rules.html" class="rules-button">View Voting Rules</a>
-    </div>
+  <div class="container" style="text-align: center;">
+    <h1 style="font-size: 3rem;">INNOVATION CLUB</h1>
+    <h2 style="margin-top: 1rem; font-size: 2rem;">Voting Website</h2>
 
-    <form action="https://hook.eu2.make.com/1vkuqbvwy930t1pq319o6hfl8tlk6c06" method="POST" id="pollForm">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
+    <div id="question" class="subtitle" style="margin-top: 2rem; font-size: 1.2rem;"></div>
+    <div id="options" class="subtitle" style="margin: 1rem 0; white-space: pre-wrap;"></div>
 
-      <label for="class">Class</label>
-      <input type="text" id="class" name="class" required />
+    <!-- Existing VOTE button -->
+<button onclick="window.location.href='vote.html'" style="font-size: 1.5rem; padding: 1rem 2rem; margin-top: 2rem;">
+  VOTE
+</button>
 
-      <label for="section">Section</label>
-      <input type="text" id="section" name="section" required />
+<!-- 🛠️ New Admin Panel Button -->
+<button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; margin-top: 1rem; background-color: #0b0f2a; border: 1px solid #00ffe7; color: #00ffe7;">
+  Admin Panel
+</button>
 
-      <label for="admission_number">Admission Number</label>
-      <input type="text" id="admission_number" name="admission_number" required />
-
-      <label>Your Vote</label>
-      <p id="vote-question" class="subtitle"></p>
-      <div id="vote-options"></div>
-
-      <!-- Hidden field to store selected vote(s) -->
-      <input type="hidden" name="vote" id="voteFinal" />
-
-      <label for="remarks">Remarks</label>
-      <textarea id="remarks" name="remarks"></textarea>
-
-      <button type="submit">SUBMIT</button>
-
-      <script>
-        let isMultiple = false;
-
-        fetch("questions.json")
-          .then(res => res.json())
-          .then(data => {
-            if (!data.active) {
-              window.location.href = "closed.html";
-              return;
-            }
-
-            isMultiple = data.multiple;
-            document.getElementById("vote-question").textContent = data.question;
-            const container = document.getElementById("vote-options");
-
-            if (isMultiple) {
-              data.options.forEach((option, i) => {
-                const label = document.createElement("label");
-                label.style.display = "block";
-                label.innerHTML = `<input type="checkbox" name="vote_option" value="${option}" /> ${option}`;
-                container.appendChild(label);
-              });
-            } else {
-              const select = document.createElement("select");
-              select.name = "vote_option";
-              select.id = "vote-dropdown";
-              select.required = true;
-
-              data.options.forEach(option => {
-                const opt = document.createElement("option");
-                opt.value = option;
-                opt.textContent = option;
-                select.appendChild(opt);
-              });
-
-              container.appendChild(select);
-            }
-          });
-
-        // On form submit, collect vote(s)
-        document.getElementById("pollForm").addEventListener("submit", function (e) {
-          let finalVote = "";
-
-          if (isMultiple) {
-            const checked = [...document.querySelectorAll('input[name="vote_option"]:checked')];
-            finalVote = checked.map(cb => cb.value).join(", ");
-          } else {
-            const selected = document.querySelector('select[name="vote_option"]');
-            finalVote = selected ? selected.value : "";
-          }
-
-          document.getElementById("voteFinal").value = finalVote;
-        });
-      </script>
-    </form>
   </div>
 
-  <div class="watermark">
-    <img src="logo.png" alt="Innovation Club Logo" />
-  </div>
+  <script>
+    // Load question and options from questions.json
+    fetch('questions.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('question').textContent = data.question;
+        document.getElementById('options').textContent = data.options.join('\\t');
+      });
+
+    // Add watermark logo at top-right
+    const watermark = document.createElement('div');
+    watermark.style.position = 'fixed';
+    watermark.style.top = '10px';
+    watermark.style.right = '10px';
+    watermark.style.width = '80px';
+    watermark.style.height = '80px';
+    watermark.style.background = "url('logo.png') no-repeat center/contain";
+    watermark.style.opacity = '0.2';
+    watermark.style.zIndex = '1000';
+    watermark.style.pointerEvents = 'none';
+    document.body.appendChild(watermark);
+  </script>
 </body>
 </html>

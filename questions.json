@@ -1,6 +1,7 @@
 {
   "active": true,
-  "question": "Which projects are you interested in participating in?",
-  "multiple": true,
-  "options": ["Robotics", "UI Design", "App Development", "Cryptography", "AI/ML"]
+  "question": "Who do you vote for as club president?",
+  "options": ["Alice", "Bob", "Charlie"],
+  "multiple": false,
+  "session": "Session 3 – July 2025"
 }

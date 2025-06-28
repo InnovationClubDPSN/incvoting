@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Innovation Club Member Poll</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
   <div class="container">
@@ -14,6 +15,7 @@
       <a href="rules.html" class="rules-button">View Voting Rules</a>
     </div>
 
+    <!-- 🌐 Now using Make webhook -->
     <form action="https://hook.eu2.make.com/1vkuqbvwy930t1pq319o6hfl8tlk6c06" method="POST" id="pollForm">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" required />
@@ -23,62 +25,24 @@
 
       <label for="section">Section</label>
       <input type="text" id="section" name="section" required />
-
+      
       <label for="admission_number">Admission Number</label>
       <input type="text" id="admission_number" name="admission_number" required />
 
-      <label>Your Vote</label>
+      <label for="vote">Your Vote</label>
       <p id="vote-question" class="subtitle"></p>
-      <div id="vote-options"></div>
+      <select name="vote" id="vote-dropdown" required></select>
 
       <label for="remarks">Remarks</label>
       <textarea id="remarks" name="remarks"></textarea>
 
       <button type="submit">SUBMIT</button>
-
-      <script>
-        fetch("questions.json")
-          .then(res => res.json())
-          .then(data => {
-            if (!data.active) {
-              window.location.href = "closed.html";
-              return;
-            }
-
-            document.getElementById("vote-question").textContent = data.question;
-            const optionsDiv = document.getElementById("vote-options");
-
-            if (data.multiple) {
-              // Render checkboxes
-              data.options.forEach((option, i) => {
-                const label = document.createElement("label");
-                label.style.display = "block";
-                label.innerHTML = `<input type="checkbox" name="vote" value="${option}"> ${option}`;
-                optionsDiv.appendChild(label);
-              });
-            } else {
-              // Render single <select>
-              const select = document.createElement("select");
-              select.name = "vote";
-              select.required = true;
-              select.id = "vote-dropdown";
-
-              data.options.forEach(option => {
-                const opt = document.createElement("option");
-                opt.value = option;
-                opt.textContent = option;
-                select.appendChild(opt);
-              });
-
-              optionsDiv.appendChild(select);
-            }
-          });
-      </script>
     </form>
   </div>
 
   <div class="watermark">
     <img src="logo.png" alt="Innovation Club Logo" />
   </div>
+
 </body>
 </html>

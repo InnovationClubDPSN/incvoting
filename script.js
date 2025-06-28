@@ -8,6 +8,13 @@ fetch('questions.json')
       return;
     }
 
+    // Set session heading text
+document.getElementById('session-title').textContent = data.session || "";
+
+// Set hidden input value for session
+document.getElementById('session-hidden').value = data.session || "";
+
+
     // Set vote question text
     document.getElementById('vote-question').textContent = data.question;
 

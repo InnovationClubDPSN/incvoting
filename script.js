@@ -11,13 +11,29 @@ fetch('questions.json')
     // Set vote question text
     document.getElementById('vote-question').textContent = data.question;
 
-    // Populate dropdown options
+    // Get the dropdown element
     const dropdown = document.getElementById('vote-dropdown');
+
+    // Populate dropdown options
     data.options.forEach(option => {
       const opt = document.createElement('option');
       opt.value = option;
       opt.textContent = option;
       dropdown.appendChild(opt);
+    });
+
+    // Handle multiple vote support
+    if (data.multiple) {
+      dropdown.multiple = true;
+      dropdown.size = Math.min(data.options.length, 5); // Show multiple options clearly
+    }
+
+    // Before form submission, capture selected options in a hidden field
+    document.getElementById("pollForm").addEventListener("submit", function (e) {
+      if (data.multiple) {
+        const selected = Array.from(dropdown.selectedOptions).map(opt => opt.value);
+        document.getElementById("votes-hidden").value = selected.join(", ");
+      }
     });
 
     // Autofill form fields from URL query parameters
@@ -44,7 +60,7 @@ function autofillFromQueryParams() {
     document.getElementById("class").value = decodeURIComponent(cls);
   }
 
-if (section) {
+  if (section) {
     document.getElementById("section").value = decodeURIComponent(section);
   }
   

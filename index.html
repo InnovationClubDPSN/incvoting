@@ -32,7 +32,7 @@
       .then(res => res.json())
       .then(data => {
         document.getElementById('question').textContent = data.question;
-        document.getElementById('options').textContent = data.options.join('\\t');
+        document.getElementById('options').textContent = data.options.join('\n');
       });
 
     // Add watermark logo at top-right

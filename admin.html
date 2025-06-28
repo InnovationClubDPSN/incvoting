@@ -20,15 +20,13 @@
     th {
       text-align: left;
     }
-    a {
-      color: #a2ffe7;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
     .hidden {
       display: none;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
   </style>
 </head>
@@ -42,24 +40,77 @@
 
   <div class="container hidden" id="admin-panel">
     <h1>🛠️ Innovation Club</h1>
-    <center><h2>Voting website Admin Panel</h2></center>
-    <center><a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/questions.json" class="rules-button">Edit form settings</a></center>
+    <center><h2>Voting Website Admin Panel</h2></center>
+    <center>
+      <a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/questions.json" class="rules-button" target="_blank">
+        Edit Form Settings (JSON)
+      </a>
+    </center>
+
     <table>
       <thead>
         <tr>
           <th>Page</th>
-          <th>Link</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Home</td><td><a href="index.html" target="_blank">index.html</a></td></tr>
-        <tr><td>Voting Form</td><td><a href="vote.html" target="_blank">vote.html</a></td></tr>
-        <tr><td>Thank You</td><td><a href="thankyou.html" target="_blank">thankyou.html</a></td></tr>
-        <tr><td>Closed</td><td><a href="closed.html" target="_blank">closed.html</a></td></tr>
-        <tr><td>Already Voted</td><td><a href="alreadyvoted.html" target="_blank">alreadyvoted.html</a></td></tr>
-        <tr><td>Not Found</td><td><a href="notfound.html" target="_blank">notfound.html</a></td></tr>
-        <tr><td>Rules</td><td><a href="rules.html" target="_blank">rules.html</a></td></tr>
-        <tr><td>Admin Panel</td><td><a href="admin.html" target="_blank">admin.html</a></td></tr>
+        <tr>
+          <td>Home</td>
+          <td class="button-group">
+            <a href="index.html" target="_blank" class="rules-button">View</a>
+            <a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/index.html" target="_blank" class="rules-button">Edit</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Voting Form</td>
+          <td class="button-group">
+            <a href="vote.html" target="_blank" class="rules-button">View</a>
+            <a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/vote.html" target="_blank" class="rules-button">Edit</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Thank You</td>
+          <td class="button-group">
+            <a href="thankyou.html" target="_blank" class="rules-button">View</a>
+            <a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/thankyou.html" target="_blank" class="rules-button">Edit</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Closed</td>
+          <td class="button-group">
+            <a href="closed.html" target="_blank" class="rules-button">View</a>
+            <a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/closed.html" target="_blank" class="rules-button">Edit</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Already Voted</td>
+          <td class="button-group">
+            <a href="alreadyvoted.html" target="_blank" class="rules-button">View</a>
+            <a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/alreadyvoted.html" target="_blank" class="rules-button">Edit</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Not Found</td>
+          <td class="button-group">
+            <a href="notfound.html" target="_blank" class="rules-button">View</a>
+            <a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/notfound.html" target="_blank" class="rules-button">Edit</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Rules</td>
+          <td class="button-group">
+            <a href="rules.html" target="_blank" class="rules-button">View</a>
+            <a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/rules.html" target="_blank" class="rules-button">Edit</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Admin Panel</td>
+          <td class="button-group">
+            <a href="admin.html" target="_blank" class="rules-button">View</a>
+            <a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/admin.html" target="_blank" class="rules-button">Edit</a>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>

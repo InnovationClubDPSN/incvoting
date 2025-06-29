@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compose Announcement – Innovation Club</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    textarea {
+      height: 200px;
+    }
+    .hidden {
+      display: none;
+    }
+    .preview {
+      background: #0e1330;
+      color: #00ffe7;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-top: 1rem;
+      border: 1px solid #00ffe7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="auth-container">
+    <h1>🔐 Admin Access</h1>
+    <p class="subtitle">Enter the admin password to compose announcements</p>
+    <input type="password" id="passwordInput" placeholder="Enter password..." />
+    <button onclick="checkPassword()">LOGIN</button>
+  </div>
+
+  <div class="container hidden" id="compose-container">
+    <h1>📢 Compose Announcement</h1>
+    <form id="composeForm">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" required />
+
+      <label for="body">Body (Markdown supported)</label>
+      <textarea id="body" name="body" required></textarea>
+
+      <label>Live Preview</label>
+      <div id="preview" class="preview"></div>
+
+      <button type="submit">SEND</button>
+    </form>
+  </div>
+
+  <div class="watermark">
+    <img src="logo.png" alt="Innovation Club Logo" />
+  </div>
+
+  <!-- Markdown parser (marked.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script>
+    // Password check
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === "admin") {
+        document.getElementById("auth-container").classList.add("hidden");
+        document.getElementById("compose-container").classList.remove("hidden");
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+
+    // Markdown preview
+    const bodyInput = document.getElementById("body");
+    const preview = document.getElementById("preview");
+
+    bodyInput?.addEventListener("input", () => {
+      preview.innerHTML = marked.parse(bodyInput.value);
+    });
+
+    // Form submission
+    document.getElementById("composeForm")?.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const subject = document.getElementById("subject").value;
+      const body = document.getElementById("body").value;
+
+      fetch("https://hook.eu2.make.com/sjwlxpo0nc45shn8vj65hjawrq3zn12c", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ subject, body })
+      })
+      .then(res => res.ok ? alert("✅ Sent!") : alert("❌ Failed to send"))
+      .catch(() => alert("⚠️ Network error"));
+    });
+  </script>
+</body>
+</html>

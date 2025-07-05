@@ -1,0 +1,16 @@
+{
+  "announcements": [
+    {
+      "title": "📢 General Notice",
+      "body": "**Voting closes** this Friday at *5 PM*. Make sure you vote!"
+    },
+    {
+      "title": "⚠️ Reminder",
+      "body": "Each student can vote only **once**. Any duplicate entry will be disqualified."
+    },
+    {
+      "title": "✅ Confirm Your Info",
+      "body": "_Double-check_ your name, class, and admission number before submitting."
+    }
+  ]
+}

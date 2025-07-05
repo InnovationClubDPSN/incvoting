@@ -27,10 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 4. Inject footer if not already present
-  if (!document.querySelector(".site-footer")) {
-    const footer = document.createElement("footer");
-    footer.className = "site-footer";
-    footer.innerText = "Made by Satyaki Bandopadhyay";
-    document.body.appendChild(footer);
-  }
+  // Inject footer at bottom if not present
+if (!document.querySelector(".site-footer")) {
+  const footer = document.createElement("footer");
+  footer.className = "site-footer";
+  footer.innerText = "Made by Satyaki Bandopadhyay";
+  document.body.appendChild(footer);
+}
+
 });

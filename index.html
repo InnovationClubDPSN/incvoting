@@ -77,20 +77,30 @@
     }
 
     // Load announcement.json
-    fetch('announcement.json')
-    .then(res => res.json())
-    .then(data => {
-      const container = document.getElementById('announcement-list');
-      data.announcements.forEach(item => {
-        const block = document.createElement('div');
-        block.className = 'announcement-item';
-        block.innerHTML = `
-          <h4>${item.title}</h4>
-          <p>${parseMarkdown(item.body)}</p>
-        `;
-        container.appendChild(block);
+    // Load multiple announcements
+fetch('announcement.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('announcement-list');
+    data.announcements.forEach(item => {
+      const block = document.createElement('div');
+      block.className = 'announcement-item';
+      
+      const date = new Date(item.date).toLocaleDateString('en-IN', {
+        day: 'numeric', month: 'short', year: 'numeric'
       });
+
+      block.innerHTML = `
+        <div class="announcement-header">
+          <h4>${item.title}</h4>
+          <span class="announcement-date">${date}</span>
+        </div>
+        <p>${parseMarkdown(item.body)}</p>
+      `;
+      container.appendChild(block);
     });
+  });
+
 </script>
 
   <script defer src="script.js"></script>

@@ -78,12 +78,20 @@
 
     // Load announcement.json
     fetch('announcement.json')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('announcement-title').textContent = data.title;
-        document.getElementById('announcement-body').innerHTML = parseMarkdown(data.body);
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById('announcement-list');
+      data.announcements.forEach(item => {
+        const block = document.createElement('div');
+        block.className = 'announcement-item';
+        block.innerHTML = `
+          <h4>${item.title}</h4>
+          <p>${parseMarkdown(item.body)}</p>
+        `;
+        container.appendChild(block);
       });
-  </script>
+    });
+</script>
 
   <script defer src="script.js"></script>
 </body>

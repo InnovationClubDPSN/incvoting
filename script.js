@@ -25,4 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 3000); // 3 seconds
     });
   });
+
+  // 4. Inject footer if not already present
+  if (!document.querySelector(".site-footer")) {
+    const footer = document.createElement("footer");
+    footer.className = "site-footer";
+    footer.innerText = "Made by Satyaki Bandopadhyay";
+    document.body.appendChild(footer);
+  }
 });

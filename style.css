@@ -103,6 +103,19 @@ button:hover {
   transform: scale(1.05);
 }
 
+.site-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1rem 0;
+  color: #a2ffe7;
+  font-size: 0.9rem;
+  opacity: 0.5;
+}
+.site-footer:hover {
+  opacity: 1;
+  text-shadow: 0 0 5px #00ffe7, 0 0 10px #00ffe7;
+  transition: all 0.3s ease-in-out;
+}
 
 .top-bar {
   text-align: center;
@@ -111,6 +124,7 @@ button:hover {
 
 .rules-button {
   display: inline-block;
+  font-family: 'Courier New', Courier, monospace;
   padding: 10px 20px;
   background-color: #007bff;
   color: white;

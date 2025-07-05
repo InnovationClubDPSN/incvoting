@@ -163,3 +163,32 @@ button:hover {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
+
+
+.announcement-box {
+  flex: 1 1 300px;
+  background-color: #12163c;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ffe7;
+  animation: fadeSlideUp 0.6s ease-out forwards;
+  color: #a2ffe7;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.announcement-box h3 {
+  font-size: 1.4rem;
+  color: #00ffe7;
+  margin-bottom: 1rem;
+}
+
+.announcement-item {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #00ffe7;
+}
+
+.announcement-item:last-child {
+  border-bottom: none;
+}

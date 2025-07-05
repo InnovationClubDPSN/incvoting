@@ -8,6 +8,7 @@ body {
   min-height: 100vh;
   position: relative;
 }
+
 .container {
   width: 90%;
   max-width: 500px;
@@ -18,46 +19,21 @@ body {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeSlideUp 0.6s ease-out forwards;
-
-
-@keyframes fadeSlideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
-#spinner {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 80px;
-  height: 80px;
-  margin: -40px 0 0 -40px;
-  border: 8px solid rgba(0, 255, 255, 0.2);
-  border-top: 8px solid #00ffe7;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  z-index: 9999;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-
-}
 h1 {
   text-align: center;
   margin-bottom: 1.5rem;
 }
+
 label {
   margin-top: 1rem;
   display: block;
 }
-input, textarea, select {
+
+input,
+textarea,
+select {
   width: 100%;
   padding: 0.6rem;
   margin-top: 0.3rem;
@@ -66,11 +42,13 @@ input, textarea, select {
   background: #0e1330;
   color: #00ffe7;
 }
+
 .subtitle {
   font-size: 0.9rem;
   color: #a2ffe7;
   margin-bottom: 0.5rem;
 }
+
 button {
   width: 100%;
   padding: 0.7rem;
@@ -88,6 +66,21 @@ button:hover {
   background-color: #00fff7;
   box-shadow: 0 0 15px #00ffe7, 0 0 25px #00ffe7;
   cursor: pointer;
+}
+
+#spinner {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  border: 8px solid rgba(0, 255, 255, 0.2);
+  border-top: 8px solid #00ffe7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 9999;
 }
 
 .watermark {
@@ -108,6 +101,7 @@ button:hover {
   max-width: 150px;
   height: auto;
   transition: transform 0.3s ease;
+  animation: floatLogo 4s ease-in-out infinite;
 }
 
 .watermark:hover img {
@@ -122,19 +116,11 @@ button:hover {
   font-size: 0.9rem;
   opacity: 0.5;
 }
+
 .site-footer:hover {
   opacity: 1;
   text-shadow: 0 0 5px #00ffe7, 0 0 10px #00ffe7;
   transition: all 0.3s ease-in-out;
-}
-
-.watermark img {
-  animation: floatLogo 4s ease-in-out infinite;
-}
-
-@keyframes floatLogo {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
 }
 
 .top-bar {
@@ -157,4 +143,23 @@ button:hover {
 
 .rules-button:hover {
   background-color: #0056b3;
+}
+
+/* --- Animations --- */
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }

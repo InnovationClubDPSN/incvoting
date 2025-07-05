@@ -8,30 +8,46 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <div class="watermark">
     <img src="logo.png" alt="Innovation Club Logo" />
   </div>
 
-  <div class="container" style="text-align: center;">
-    <h1 style="font-size: 3rem;">INNOVATION CLUB</h1>
-    <h2 style="margin-top: 1rem; font-size: 2rem;">Voting Website</h2>
-    <center><h3 id="session-title" class="subtitle" style="margin-bottom: 2rem;"></h3></center>
+  <div class="content-row">
 
+    <!-- Voting Section -->
+    <div class="main-box" style="text-align: center;">
+      <h1 style="font-size: 3rem;">INNOVATION CLUB</h1>
+      <h2 style="margin-top: 1rem; font-size: 2rem;">Voting Website</h2>
+      <center><h3 id="session-title" class="subtitle" style="margin-bottom: 2rem;"></h3></center>
 
-    <div id="question" class="subtitle" style="margin-top: 2rem; font-size: 1.2rem;"></div>
-    <div id="options" class="subtitle" style="margin: 1rem 0; white-space: pre-wrap;"></div>
+      <div id="question" class="subtitle" style="margin-top: 2rem; font-size: 1.2rem;"></div>
+      <div id="options" class="subtitle" style="margin: 1rem 0; white-space: pre-wrap;"></div>
 
-    <!-- Existing VOTE button -->
-<button onclick="window.location.href='vote.html'" style="font-size: 1.5rem; padding: 1rem 2rem; margin-top: 2rem;">
-  VOTE
-</button>
+      <button onclick="window.location.href='vote.html'" style="font-size: 1.5rem; padding: 1rem 2rem; margin-top: 2rem;">
+        VOTE
+      </button>
 
-<!-- 🛠️ New Admin Panel Button -->
-<button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; margin-top: 1rem; background-color: #0b0f2a; border: 1px solid #00ffe7; color: #00ffe7;">
-  Admin Panel
-</button>
+      <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; margin-top: 1rem; background-color: #0b0f2a; border: 1px solid #00ffe7; color: #00ffe7;">
+        Admin Panel
+      </button>
+    </div>
+
+    <!-- Announcement Section -->
+    <div class="announcement-box">
+      <h3 class="announcement-title">📢 Announcement</h3>
+      <p class="announcement-body">
+        Voting closes Friday at 5 PM.<br>
+        Make sure your details are correct before you submit your vote.
+      </p>
+    </div>
 
   </div>
+
+  <!-- Footer Block -->
+  <footer class="site-footer">
+    Made by Satyaki Bandopadhyay
+  </footer>
 
   <script>
     // Load question and options from questions.json
@@ -40,11 +56,11 @@
       .then(data => {
         document.getElementById('question').textContent = data.question;
         document.getElementById('options').textContent = data.options.join('\n');
+        if (data.session) {
+          document.getElementById('session-title').textContent = "Session: " + data.session;
+        }
       });
-
-    
   </script>
   <script defer src="script.js"></script>
-
 </body>
 </html>

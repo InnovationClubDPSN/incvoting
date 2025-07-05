@@ -26,16 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 4. Inject footer if not already present
-  // Inject footer at bottom if not present
-document.addEventListener("DOMContentLoaded", () => {
   // Inject footer if not already present
   if (!document.querySelector(".site-footer")) {
     const footer = document.createElement("footer");
     footer.className = "site-footer";
     footer.innerText = "Made by Satyaki Bandopadhyay";
 
-    // Style the footer
+    // Footer styling
     footer.style.textAlign = "center";
     footer.style.padding = "1rem 0";
     footer.style.color = "#a2ffe7";
@@ -43,20 +40,30 @@ document.addEventListener("DOMContentLoaded", () => {
     footer.style.opacity = "0.5";
     footer.style.marginTop = "auto";
 
-    // Force it to bottom by setting container to flex
+    // Ensure body is full-height flex column
+    document.documentElement.style.height = "100%";
+    document.body.style.minHeight = "100vh";
     document.body.style.display = "flex";
     document.body.style.flexDirection = "column";
-    document.body.style.minHeight = "100vh";
 
-    // Ensure main content takes space
-    const container = document.querySelector(".container");
-    if (container) {
-      container.style.flex = "1";
+    // Ensure main content fills vertical space
+    const main = document.querySelector(".container") || document.querySelector("main");
+    if (main) {
+      main.style.flex = "1";
+    } else {
+      // fallback: wrap body content in a div
+      const wrapper = document.createElement("div");
+      wrapper.style.flex = "1";
+      while (document.body.firstChild && document.body.firstChild !== footer) {
+        wrapper.appendChild(document.body.firstChild);
+      }
+      document.body.prepend(wrapper);
     }
 
     document.body.appendChild(footer);
   }
 });
+
 
 
 });

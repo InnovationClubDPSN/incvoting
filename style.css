@@ -117,6 +117,15 @@ button:hover {
   transition: all 0.3s ease-in-out;
 }
 
+.watermark img {
+  animation: floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
 .top-bar {
   text-align: center;
   margin: 10px 0;

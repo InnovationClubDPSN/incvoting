@@ -1,16 +1,54 @@
 {
   "announcements": [
     {
-      "title": "📢 General Notice",
-      "body": "**Voting closes** this Friday at *5 PM*. Make sure you vote!"
+      "title": "📢 Voting Reminder",
+      "body": "**Voting closes today at 5:00 PM**. Make sure you submit your response before the deadline!",
+      "date": "2025-07-06"
     },
     {
-      "title": "⚠️ Reminder",
-      "body": "Each student can vote only **once**. Any duplicate entry will be disqualified."
+      "title": "✅ Confirmation Required",
+      "body": "Please _double-check_ your name, class, and admission number before submitting the vote.",
+      "date": "2025-07-06"
     },
     {
-      "title": "✅ Confirm Your Info",
-      "body": "_Double-check_ your name, class, and admission number before submitting."
+      "title": "⚠️ Duplicate Submissions",
+      "body": "Each member is allowed **only one** vote. Submitting more than once will lead to disqualification.",
+      "date": "2025-07-05"
+    },
+    {
+      "title": "🎉 Thank You!",
+      "body": "Thanks to all who have voted! Your participation helps shape the future of the club.",
+      "date": "2025-07-05"
+    },
+    {
+      "title": "🛠️ Voting Issue Fixed",
+      "body": "An earlier bug affecting registration numbers has been **resolved**. You may vote now.",
+      "date": "2025-07-04"
+    },
+    {
+      "title": "📌 Attendance Notice",
+      "body": "Voting will also mark **your attendance** for this event.\nMake sure your details are correct.",
+      "date": "2025-07-03"
+    },
+    {
+      "title": "📝 Edit Requests",
+      "body": "If your information is incorrect, use the _Edit Request_ feature from the voting page **before voting**.",
+      "date": "2025-07-02"
+    },
+    {
+      "title": "🚨 Link Sharing Alert",
+      "body": "**Do NOT share the voting link**. Your submission is linked to your ID and is fully traceable.",
+      "date": "2025-07-02"
+    },
+    {
+      "title": "📅 Voting Schedule",
+      "body": "- Voting Opens: **July 2, 10:00 AM**\n- Voting Closes: **July 6, 5:00 PM**\n- Results: **July 7, via email**",
+      "date": "2025-07-01"
+    },
+    {
+      "title": "🔒 Security Notice",
+      "body": "The voting platform uses secure authentication. Any misuse will be reported to the club faculty.",
+      "date": "2025-06-30"
     }
   ]
 }

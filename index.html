@@ -6,17 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Innovation Club Voting</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .content-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+      max-width: 1000px;
+      width: 100%;
+    }
+    .container {
+      flex: 1 1 450px;
+    }
+    .announcement-box {
+      flex: 1 1 300px;
+      background-color: #12163c;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffe7;
+      animation: fadeSlideUp 0.6s ease-out forwards;
+      color: #a2ffe7;
+    }
+    .announcement-box h3 {
+      font-size: 1.4rem;
+      color: #00ffe7;
+      margin-bottom: 1rem;
+    }
+    .announcement-body p {
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
 <body>
-
   <div class="watermark">
     <img src="logo.png" alt="Innovation Club Logo" />
   </div>
 
   <div class="content-row">
-
-    <!-- Voting Section -->
-    <div class="main-box" style="text-align: center;">
+    <!-- Voting Form Block -->
+    <div class="container" style="text-align: center;">
       <h1 style="font-size: 3rem;">INNOVATION CLUB</h1>
       <h2 style="margin-top: 1rem; font-size: 2rem;">Voting Website</h2>
       <center><h3 id="session-title" class="subtitle" style="margin-bottom: 2rem;"></h3></center>
@@ -33,34 +62,44 @@
       </button>
     </div>
 
-    <!-- Announcement Section -->
+    <!-- Announcement Box -->
     <div class="announcement-box">
-      <h3 class="announcement-title">📢 Announcement</h3>
-      <p class="announcement-body">
-        Voting closes Friday at 5 PM.<br>
-        Make sure your details are correct before you submit your vote.
-      </p>
+      <h3 id="announcement-title"></h3>
+      <div id="announcement-body" class="announcement-body"></div>
     </div>
-
   </div>
 
-  <!-- Footer Block -->
-  <footer class="site-footer">
-    Made by Satyaki Bandopadhyay
-  </footer>
-
   <script>
-    // Load question and options from questions.json
+    // Load question and options
     fetch('questions.json')
       .then(res => res.json())
       .then(data => {
         document.getElementById('question').textContent = data.question;
         document.getElementById('options').textContent = data.options.join('\n');
-        if (data.session) {
-          document.getElementById('session-title').textContent = "Session: " + data.session;
-        }
+      });
+
+    // Lightweight Markdown to HTML parser
+    function parseMarkdown(md) {
+      return md
+        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+        .replace(/_(.*?)_/gim, '<em>$1</em>')
+        .replace(/`(.*?)`/gim, '<code>$1</code>')
+        .replace(/\n/g, '<br>');
+    }
+
+    // Load announcement.json
+    fetch('announcement.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('announcement-title').textContent = data.title;
+        document.getElementById('announcement-body').innerHTML = parseMarkdown(data.body);
       });
   </script>
+
   <script defer src="script.js"></script>
 </body>
 </html>

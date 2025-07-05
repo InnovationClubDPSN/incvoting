@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Inject footer if not already present
+  // 4. Inject footer if not already present
   if (!document.querySelector(".site-footer")) {
     const footer = document.createElement("footer");
     footer.className = "site-footer";
@@ -62,8 +62,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(footer);
   }
-});
-
-
-
 });

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const durationPerChar = 0.07;
+  const durationPerChar = 0.7;
   const maxDuration = 3;
   document.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(heading => {
     const text = heading.textContent;

@@ -207,3 +207,24 @@ button:hover {
   font-style: italic;
 }
 
+.site-footer-box {
+  background: #12163c;
+  border: 2px solid #00ffe7;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 3rem;
+  text-align: center;
+  color: #a2ffe7;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  box-shadow: 0 0 15px #00ffe7;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+}
+
+.site-footer-box:hover {
+  opacity: 1;
+  text-shadow: 0 0 6px #00ffe7, 0 0 12px #00ffe7;
+}

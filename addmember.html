@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Member</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #member-form, #unauthorized-msg {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="watermark">
+    <img src="logo.png" alt="Innovation Club Logo" />
+  </div>
+
+  <div class="container" style="text-align: center;">
+    <h1>Add New Member</h1>
+    <div id="auth-section">
+      <p class="subtitle">Enter admin password to continue</p>
+      <input type="password" id="member-password" placeholder="Enter password..." />
+      <button onclick="validatePassword()">UNLOCK</button>
+    </div>
+
+    <div id="member-form">
+      <form id="addForm">
+        <label>Name</label>
+        <input type="text" name="name" required />
+
+        <label>Class</label>
+        <input type="text" name="class" required />
+
+        <label>Section</label>
+        <input type="text" name="section" required />
+
+        <label>Admission Number</label>
+        <input type="text" name="admission_number" required />
+
+        <label>Registration Number</label>
+        <input type="text" name="registration_number" required />
+
+        <label>Email</label>
+        <input type="email" name="email" required />
+
+        <button type="submit">Add Member</button>
+      </form>
+    </div>
+
+    <p id="unauthorized-msg" class="subtitle" style="color: red;">Incorrect password. Try again.</p>
+  </div>
+
+  <script>
+    let adminPassword = "";
+
+    // Load password from questions.json
+    fetch('questions.json')
+      .then(res => res.json())
+      .then(data => {
+        adminPassword = data.member_password || "admin"; // fallback
+      });
+
+    function validatePassword() {
+      const input = document.getElementById("member-password").value.trim();
+      if (input === adminPassword) {
+        document.getElementById("auth-section").style.display = "none";
+        document.getElementById("member-form").style.display = "block";
+      } else {
+        document.getElementById("unauthorized-msg").style.display = "block";
+      }
+    }
+
+    // Submit form to Make webhook (adjust URL)
+    document.getElementById("addForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(this).entries());
+      fetch("https://hook.make.com/YOUR-WEBHOOK-ID", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      }).then(res => {
+        if (res.ok) {
+          alert("✅ Member added successfully!");
+          this.reset();
+        } else {
+          alert("❌ Failed to add member.");
+        }
+      });
+    });
+  </script>
+  <script defer src="script.js"></script>
+</body>
+</html>

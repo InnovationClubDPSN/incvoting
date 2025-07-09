@@ -31,7 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!document.querySelector(".site-footer-box")) {
     const footerBox = document.createElement("footer");
     footerBox.className = "site-footer-box";
-    footerBox.innerText = "Made by Satyaki Bandopadhyay";
+    footerBox.innerText = `Made by Satyaki Bandopadhyay
+    Made by Ridit Jana
+    Made by Aryaman Ghosh
+    Made by Satvik Roy`;
 
     // Ensure body is full-height flex layout
     document.documentElement.style.height = "100%";

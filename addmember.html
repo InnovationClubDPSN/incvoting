@@ -77,7 +77,7 @@
     document.getElementById("addForm").addEventListener("submit", function (e) {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(this).entries());
-      fetch("https://hook.make.com/YOUR-WEBHOOK-ID", {
+      fetch("https://hook.eu2.make.com/2ucfifd8wfeh4srfm8j5jnjvsaugh56h", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)

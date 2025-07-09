@@ -3,6 +3,6 @@
   "question": "Who do you vote for as club president?",
   "options": ["Alice", "Bob", "Charlie"],
   "multiple": false,
-  "session": "Session 3 – July 2025"
+  "session": "Session 3 – July 2025",
   "member_password": "admin123"
 }

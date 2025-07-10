@@ -131,7 +131,7 @@ button:hover {
 .rules-button {
   display: inline-block;
   font-family: 'Courier New', Courier, monospace;
-  padding: 10px 20px;
+  padding: 10px 16px;
   background-color: #00ffe7;
   color: #0b0f2a;
   text-decoration: none;
@@ -140,17 +140,19 @@ button:hover {
   font-weight: bold;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px transparent;
-  width: 100%;
-  margin-top: 1.5rem;
   border: none;
-  text-align: center;
+  margin-top: 1.2rem;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 .rules-button:hover {
   background-color: #00fff7;
   box-shadow: 0 0 15px #00ffe7, 0 0 25px #00ffe7;
   cursor: pointer;
 }
+
 
 /* --- Animations --- */
 

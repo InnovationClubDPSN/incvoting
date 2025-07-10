@@ -128,28 +128,25 @@ button:hover {
   margin: 10px 0;
 }
 
-rules-button {
+.rules-button {
   display: inline-block;
   font-family: 'Courier New', Courier, monospace;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 100%;
-  padding: 0.7rem;
-  margin-top: 1.5rem;
-  border: none;
-  border-radius: 8px;
   background-color: #00ffe7;
   color: #0b0f2a;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
   font-weight: bold;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px transparent;
+  width: 100%;
+  margin-top: 1.5rem;
+  border: none;
+  text-align: center;
 }
 
-rules-button:hover {
+.rules-button:hover {
   background-color: #00fff7;
   box-shadow: 0 0 15px #00ffe7, 0 0 25px #00ffe7;
   cursor: pointer;

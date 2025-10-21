@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="icon" type="image/png" href="logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Innovation Club Voting</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+  
+<!-- Marquee Banner -->
+<!--
+<div class="marquee-banner">
+  <a href="releasenotes.html">
+  <div class="marquee-content">
+    🚀 Version 2.2.0 is live!! 🎉 Read the changelog here.
+  </div>
+  </a>
+</div>
+-->
+
+<div id="side-panel" class="side-panel">
+  <button class="close-btn" onclick="togglePanel()">✖</button>
+  <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+  <strong><center>Voting Webpage</strong></center><br><br>
+  <h2>Navigation</h2>
+  <button onclick="window.location.href='index.html'">🏠 Home</button>
+  <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+  <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+  <button onclick="window.location.href='game.html'">🎮 Games</button>
+  <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+  <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">🔐 Admin</button>
+
+  <h2 style="margin-top:2rem;">Themes</h2>
+  <button onclick="setTheme('hacker')">💻 Hacker</button>
+  <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+  <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+  <button onclick="setTheme('white')">⚪ Pure White</button>
+  <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+  <br><br>
+</div>
+
+<!-- Toggle Button -->
+<div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+  <!-- Main Content Centered -->
+<div class="page-wrapper">
+  <div class="watermark">
+    <img src="logo.png" alt="Innovation Club Logo" />
+  </div>
+  <div class="container">
+    <!-- Your content here (e.g., headings, buttons, etc.) -->
+    <h1 style="font-size: 3rem;">INNOVATION CLUB</h1>
+    <a href="releasenotes.html"><p><i>(Version 2.3.0)</i></p></a>
+    <h2 style="margin-top: 0.5rem; font-size: 2rem;">Voting Website</h2>
+    <strong><div id="question" class="subtitle" style="margin-top: 2rem; font-size: 1.2rem;"></div></strong>
+    <div id="options" class="subtitle" style="margin: 1rem 0; white-space: pre-wrap;"></div>
+    <button onclick="window.location.href='vote.html'" class="rules-button" style="margin-top: 1rem;">
+      👆 VOTE
+    </button>
+    <button onclick="window.location.href='addmember.html'" class="rules-button" style="margin-top: 1rem;">
+      ➕ Add Member
+    </button>
+    <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; margin-top: 1rem; background-color: #0b0f2a; border: 1px solid #ff0010; color: #ff0010;">
+      🔐 Admin Panel
+    </button>
+  </div>
+</div>
+<div class="page-wrapper", style="min-height:0 ; padding-top: 0; margin-top: 0px;">
+  <div class="container" style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;
+">
+    <h2>Feedback and help page</h2>
+    <p>Have suggestions or found a bug? Reach out to us!</p>
+    <button onclick="window.location.href='feedback.html'" class="rules-button" style="margin-top: 1rem;">
+      💬 Feedback Form
+    </button>
+        <button onclick="window.location.href='howtouse.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; margin-top: 1rem;">
+      ❓ Help page
+    </button>
+    <button onclick="window.location.href='releasenotes.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; margin-top: 1rem;">
+      📝 Release Notes
+    </button>
+</div>
+</div>
+<br><br>
+
+
+  <script>
+    // Load question and options
+  fetch('questions.json')
+    .then(res => res.json())
+    .then(data => {
+      if (data.active === true) {
+        document.getElementById('question').textContent = data.question;
+        document.getElementById('options').textContent = data.options.join('\n');
+      } else {
+        document.getElementById('question').textContent = "No active voting at the moment.";
+        document.getElementById('options').textContent = "Please check back later.";
+      }
+    })
+    .catch(err => {
+      console.error("Error loading JSON:", err);
+    });
+</script>
+
+  <script defer src="script.js"></script>
+
+
+</body>
+</html>

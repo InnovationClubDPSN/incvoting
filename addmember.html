@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Member</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #member-form, #unauthorized-msg {
+      display: none;
+    }
+    #auth-section {
+      background: rgba(30, 0, 50, 0.5);
+      border: 1px solid rgba(255, 45, 149, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(107, 55, 255, 0.25);
+      backdrop-filter: blur(6px);
+      padding: 2rem;
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    #member-password {
+      width: 100%;
+      max-width: 320px;
+      padding: 0.9rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255,45,149,0.28);
+      background: linear-gradient(90deg, #141414 60%, #1f1f1f 100%);
+      color: #ff2d95;
+      font-size: 1rem;
+      box-shadow: 0 2px 10px rgba(107,55,255,0.04);
+    }
+    #member-password:focus {
+      border-color: #00f0ff;
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Side Panel -->
+<div id="side-panel" class="side-panel">
+  <button class="close-btn" onclick="togglePanel()">✖</button>
+  <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+  <strong><center>Voting Webpage</strong></center><br><br>
+  <h2>Navigation</h2>
+  <button onclick="window.location.href='index.html'">🏠 Home</button>
+  <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+  <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+  <button onclick="window.location.href='game.html'">🎮 Games</button>
+  <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+  <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">🔐 Admin</button>
+
+  <h2 style="margin-top:2rem;">Themes</h2>
+  <button onclick="setTheme('hacker')">💻 Hacker</button>
+  <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+  <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+  <button onclick="setTheme('white')">⚪ Pure White</button>
+  <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+  <br><br>
+</div>
+
+<!-- Toggle Button -->
+<div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+<div class="watermark">
+  <img src="logo.png" alt="Innovation Club Logo" />
+</div>
+
+<div class="page-wrapper">
+  <div class="container">
+    <h1>Add New Member</h1>
+
+    <div id="auth-section">
+      <p class="subtitle">Enter admin password to continue</p>
+      <input type="password" id="member-password" placeholder="Enter password..." />
+      <button onclick="validatePassword()">UNLOCK</button>
+    </div>
+
+    <div id="member-form">
+      <form id="pollForm" action="https://hook.eu2.make.com/2ucfifd8wfeh4srfm8j5jnjvsaugh56h" method="POST">
+        <label>Name</label>
+        <input type="text" name="name" required />
+
+        <label>Class <small><i>(Avoid using Roman numerals)</i></small></label>
+        <input type="text" name="class" required />
+
+        <label>Section <small><i>(Single capital letter)</i></small></label>
+        <input type="text" name="section" required />
+
+        <label>Admission Number</label>
+        <input type="text" name="admission_number" required />
+
+        <label>Registration Number</label>
+        <p class="subtitle"><i>Find it on:
+        <ul>
+          <li>Barcode on your ID card</li>
+          <li>Temporary ID card</li>
+          <li>NASCORP portal</li>
+        </ul></i></p>
+        <input type="text" name="registration_number" required />
+
+        <label>Email <small><i>(Your school email: person@dpsn.org.in)</i></small></label>
+        <input type="email" name="email" required />
+
+        <button type="submit">Add Member</button>
+      </form>
+    </div>
+
+    <p id="unauthorized-msg" class="subtitle" style="color: red;">Incorrect password. Try again.</p>
+  </div>
+</div>
+
+<script>
+  let adminPassword = "";
+
+  fetch('questions.json')
+    .then(res => res.json())
+    .then(data => {
+      adminPassword = data.member_password || "admin";
+    });
+
+  function validatePassword() {
+    const input = document.getElementById("member-password").value.trim();
+    if (input === adminPassword) {
+      document.getElementById("auth-section").style.display = "none";
+      document.getElementById("member-form").style.display = "block";
+    } else {
+      document.getElementById("unauthorized-msg").style.display = "block";
+    }
+  }
+
+  document.getElementById("pollForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(this).entries());
+    fetch(this.action, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    }).then(res => {
+      if (res.ok) {
+        alert("✅ Member added successfully!");
+        this.reset();
+      } else {
+        alert("❌ Failed to add member.");
+      }
+    });
+  });
+</script>
+<script defer src="script.js"></script>
+</body>
+</html>

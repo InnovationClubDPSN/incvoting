@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel – Innovation Club</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Side Panel -->
+  <div id="side-panel" class="side-panel">
+    <button class="close-btn" onclick="togglePanel()">✖</button>
+    <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+    <strong><center>Voting Webpage</strong></center><br><br>
+    <h2>Navigation</h2>
+    <button onclick="window.location.href='index.html'">🏠 Home</button>
+    <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+    <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+    <button onclick="window.location.href='game.html'">🎮 Games</button>
+    <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+    <button onclick="window.location.href='admin.html'" 
+      style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">
+      🔐 Admin
+    </button>
+
+    <h2 style="margin-top:2rem;">Themes</h2>
+    <button onclick="setTheme('hacker')">💻 Hacker</button>
+    <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+    <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+    <button onclick="setTheme('white')">⚪ Pure White</button>
+    <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+    <br><br>
+  </div>
+
+  <!-- Toggle Button -->
+  <div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+  <!-- Auth Container -->
+  <div class="page-wrapper">
+    <div class="container" id="auth-container" style="text-align: center;">
+      <h1>🔐 Admin Access</h1>
+      <p class="subtitle">Enter the admin password to view internal links</p>
+      <input type="password" id="passwordInput" placeholder="Enter password..." />
+      <button onclick="checkPassword()">LOGIN</button>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="container-admin hidden" id="admin-panel" 
+         style="text-align: center; overflow-y:auto; box-sizing:border-box; padding-top:24px; padding-bottom:24px;">
+      <h1>🛠️ Innovation Club</h1>
+      <h2>Voting Website Admin Panel</h2>
+
+      <!-- Key Links -->
+      <a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/questions.json" class="rules-button" target="_blank">
+        Edit Form Settings (JSON)
+      </a>
+      <br><br>
+      <a href="https://github.com/InnovationClubDPSN/incvoting/" class="rules-button" target="_blank">
+        View GitHub
+      </a>
+      <br><br>
+      <a href="compose.html" class="rules-button" target="_blank">
+        Send Announcement
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="logo.png" alt="Innovation Club Logo" />
+  </div>
+
+  <!-- Scripts -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Password check
+    window.checkPassword = function () {
+      const input = document.getElementById("passwordInput").value;
+      const authContainer = document.getElementById("auth-container");
+      const composeContainer = document.getElementById("admin-panel");
+
+      if (input === "admin") {
+        authContainer.classList.add("hidden");
+        composeContainer.classList.remove("hidden");
+      } else {
+        alert("Incorrect password.");
+      }
+    };
+
+    // Markdown preview
+    const bodyInput = document.getElementById("body");
+    const preview = document.getElementById("preview");
+
+    bodyInput?.addEventListener("input", () => {
+      preview.innerHTML = marked.parse(bodyInput.value);
+    });
+
+    // Form submission
+    document.getElementById("composeForm")?.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const subject = document.getElementById("subject").value;
+      const body = document.getElementById("body").value;
+
+      fetch("https://hook.eu2.make.com/sjwlxpo0nc45shn8vj65hjawrq3zn12c", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ subject, body })
+      })
+      .then(res => res.ok ? alert("✅ Sent!") : alert("❌ Failed to send"))
+      .catch(() => alert("⚠️ Network error"));
+    });
+  });
+</script>
+
+  <script defer src="script.js"></script>
+</body>
+</html>

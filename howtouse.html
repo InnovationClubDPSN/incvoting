@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="icon" type="image/png" href="logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Use – Innovation Club</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Card styling like rules page */
+    .rules-card {
+      background: rgba(10, 10, 30, 0.95);
+      border: 2px solid #00ffff;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      color: #e0e0e0;
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+
+    .rules-card h1 {
+      font-size: 2.5rem;
+      color: #ff0010;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .rules-card h2 {
+      margin-top: 1.5rem;
+      color: #00ffff;
+    }
+
+    .rules-card p,
+    .rules-card li {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 0.8rem;
+    }
+
+    details[open] summary {
+      color: #ff4081;
+    }
+
+    /* Fade + slide up animation */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Side Panel -->
+<div id="side-panel" class="side-panel">
+  <button class="close-btn" onclick="togglePanel()">✖</button>
+  <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+  <strong><center>Voting Webpage</strong></center><br><br>
+  
+  <h2>Navigation</h2>
+  <button onclick="window.location.href='index.html'">🏠 Home</button>
+  <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+  <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+  <button onclick="window.location.href='game.html'">🎮 Games</button>
+  <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+  <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">🔐 Admin</button>
+
+  <h2 style="margin-top:2rem;">Themes</h2>
+  <button onclick="setTheme('hacker')">💻 Hacker</button>
+  <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+  <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+  <button onclick="setTheme('white')">⚪ Pure White</button>
+  <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+  <br><br>
+</div>
+
+<!-- Toggle Button -->
+<div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+<!-- Main Content -->
+<div class="page-wrapper">
+  <div class="container">
+    <h1>📖 How to Use This Site</h1>
+    <p class="subtitle"><center>A step-by-step guide to using the Innovation Club Voting System.</center></p>
+
+    <h2>Getting Started</h2>
+    <ol>
+      <li><strong>Open the site:</strong> Use the official link shared by Innovation Club DPS Newtown.</li>
+      <li><strong>Check status:</strong> If the landing page shows voting or member login as unavailable, try again later.</li>
+    </ol>
+
+    <h2>Voting</h2>
+    <ol>
+      <li>Open the <em>Voting</em> page when it’s active.</li>
+      <li>Read the question and available options.</li>
+      <li>Select your choice and submit. If voting is closed, the page will clearly say so.</li>
+    </ol>
+
+    <h2>Tips</h2>
+    <ul>
+      <li>Use the latest version of Chrome or Edge.</li>
+      <li>Check your network connection if pages don’t update.</li>
+      <li>For issues, contact the Innovation Club team and include your Admission Number.</li>
+    </ul>
+
+    <h2>FAQ</h2>
+    <details>
+      <summary>My admission number isn't found</summary>
+      <p>Please verify the format (letters + numbers, if applicable). If still not found, contact the admins to check the membership list.</p>
+    </details>
+    <details>
+      <summary>Voting says it is closed</summary>
+      <p>When the voting session is inactive, the page will display a closed message. Try again during the announced time window.</p>
+    </details>
+    <details>
+      <summary>Attendance looks incorrect</summary>
+      <p>Use the edit request feature from your profile. Provide the old and corrected value; admins will review it.</p>
+    </details>
+
+    <br><br>
+    <button onclick="window.location.href='index.html'">🏠 Back to Home</button>
+  </div>
+</div>
+
+<!-- Watermark -->
+<div class="watermark">
+  <img src="logo.png" alt="Innovation Club Logo" />
+</div>
+
+<script defer src="script.js"></script>
+</body>
+</html>

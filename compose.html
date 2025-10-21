@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compose Announcement – Innovation Club</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* form layout */
+    #compose-container { padding: 2rem 1.5rem; }
+    form#composeForm {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid rgba(255,45,149,0.08);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+
+    form#composeForm label {
+      font-weight: 700;
+      color: #ffd6f0;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    form#composeForm input[type="text"],
+    form#composeForm textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,45,149,0.12);
+      background: linear-gradient(90deg, #0f0f18, #151526);
+      color: #ffb5d6;
+      font-size: 0.98rem;
+      resize: vertical;
+      min-height: 48px;
+      box-sizing: border-box;
+      transition: box-shadow 0.18s ease, transform 0.06s ease;
+    }
+
+    form#composeForm textarea { min-height: 180px; line-height: 1.5; }
+
+    form#composeForm input:focus,
+    form#composeForm textarea:focus {
+      outline: none;
+      border-color: #00f0ff;
+      box-shadow: 0 8px 22px rgba(0,240,255,0.06);
+      transform: translateY(-1px);
+      background: linear-gradient(90deg, #141427, #1b1930);
+    }
+
+    .preview {
+      background: linear-gradient(180deg,#070717, #0f0f24);
+      color: #8ffdf0;
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 6px;
+      border: 1px solid rgba(0,255,239,0.08);
+      max-height: 320px;
+      overflow-y: auto;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+
+    /* submit button */
+    form#composeForm button[type="submit"] {
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(90deg,#ff2d95,#6b37ff);
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 1px;
+      cursor: pointer;
+      align-self: flex-end;
+      box-shadow: 0 10px 30px rgba(107,55,255,0.14);
+      transition: transform 0.12s ease, box-shadow 0.18s ease;
+    }
+
+    form#composeForm button[type="submit"]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(107,55,255,0.22);
+    }
+
+    /* link-wrapped button fix (anchor wrapping the button) */
+    form#composeForm a { display:inline-block; text-decoration:none; }
+
+    /* small helpers */
+    .subtitle { color: #ffb5d6; opacity: 0.9; margin-top: 0.4rem; font-size: 0.95rem; }
+    .hint { font-size: 0.9rem; color: #b7a0c8; }
+
+    /* responsive */
+    @media (max-width: 720px) {
+      form#composeForm { padding: 14px; gap: 12px; }
+      form#composeForm button[type="submit"] { width: 100%; align-self: stretch; }
+      #compose-container { padding: 1rem; }
+    }
+  </style>
+</head>
+<body style="display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; flex-direction:column;">
+
+<div id="side-panel" class="side-panel">
+  <button class="close-btn" onclick="togglePanel()">✖</button>
+  <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+  <strong><center>Voting Webpage</strong></center><br><br>
+  <h2>Navigation</h2>
+  <button onclick="window.location.href='index.html'">🏠 Home</button>
+  <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+  <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+  <button onclick="window.location.href='game.html'">🎮 Games</button>
+  <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+  <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">🔐 Admin</button>
+
+  <h2 style="margin-top:2rem;">Themes</h2>
+  <button onclick="setTheme('hacker')">💻 Hacker</button>
+  <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+  <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+  <button onclick="setTheme('white')">⚪ Pure White</button>
+  <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+  <br><br>
+</div>
+
+<!-- Toggle Button -->
+<div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+
+  <div class="container" id="auth-container">
+    <h1>🔐 Admin Access</h1>
+    <p class="subtitle">Enter the admin password to compose announcements</p>
+    <input type="password" id="passwordInput" placeholder="Enter password..." />
+    <button onclick="checkPassword()">LOGIN</button>
+  </div>
+
+  <div class="container hidden" id="compose-container">
+    <h1>📢 Compose Announcement</h1>
+    <center><h4><i>Also please don't foget to upload the announcement to <a href="https://github.com/InnovationClubDPSN/incvoting/edit/main/announcement.json">The announcement JSON.</a></i></h4></center>
+<br>
+    <a href="admin.html" class="rules-button" style="margin-top: 1rem;">⬅ Back to Admin Panel</a>
+<br><br>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfJ0S-qd__5wbwEPP15bii0TKmGtpVYCT2A8fODeUs4QiEPHg/viewform?embedded=true" width="640" height="699" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+
+  <div class="watermark">
+    <img src="logo.png" alt="Innovation Club Logo" />
+  </div>
+
+  <!-- Markdown parser (marked.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Password check
+    window.checkPassword = function () {
+      const input = document.getElementById("passwordInput").value;
+      const authContainer = document.getElementById("auth-container");
+      const composeContainer = document.getElementById("compose-container");
+
+      if (input === "admin") {
+        authContainer.classList.add("hidden");
+        composeContainer.classList.remove("hidden");
+      } else {
+        alert("Incorrect password.");
+      }
+    };
+
+    // Markdown preview
+    const bodyInput = document.getElementById("body");
+    const preview = document.getElementById("preview");
+
+    bodyInput?.addEventListener("input", () => {
+      preview.innerHTML = marked.parse(bodyInput.value);
+    });
+
+    // Form submission
+    document.getElementById("composeForm")?.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const subject = document.getElementById("subject").value;
+      const body = document.getElementById("body").value;
+
+      fetch("https://hook.eu2.make.com/sjwlxpo0nc45shn8vj65hjawrq3zn12c", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ subject, body })
+      })
+      .then(res => res.ok ? alert("✅ Sent!") : alert("❌ Failed to send"))
+      .catch(() => alert("⚠️ Network error"));
+    });
+  });
+</script>
+
+  <script defer src="script.js"></script>
+</body>
+</html>

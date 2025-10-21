@@ -1,0 +1,34 @@
+{
+  "announcements": [
+    {
+      "title": "⭐ Introduced system",
+      "body": "**Voting and attendance system** has been introduced in the club. All members are requested to send their data through the Google Form within Wednesday to give enough time for data cleaning.",
+      "date": "2025-07-11"
+    },
+    {
+      "title": "🧠 Logo update",
+      "body": "Official logo has replaced placeholder. We have also updated the theme of the webpage. Kindly look through the website. If any webpage/element has yet not adapted to the new font, please report to **innovationclubdpsnewtown@gmail.com**",
+      "date": "2025-07-13"
+    },
+    {
+      "title": "🚀 Official launch",
+      "body": "We will be presenting and bringing into implementation, the system, on the 25/07/2025 meeting. All members will be introduced to the hardware and regular logging. Admins will be familiarised with the system of setup and controlling the app.",
+      "date": "2025-07-18"
+    },
+{
+      "title": "🔐 Member addition closed",
+      "body": "Member addition has been closed. Password for the members addition portal has been changed. If you are an unregistered member with a valid reason for not submitting the details, please contact system admin at **+91 8961169640**",
+      "date": "2025-07-21"
+    },
+{
+      "title": "🎨 New look",
+      "body": "The website has been given a new look. The theme has been changed to a more minimalistic and modern design. Please explore the website and report any issues to **8961169640**. This is version 2.2.0 of the website.",
+      "date": "2025-07-22"
+    },
+{
+      "title": "👤 Member identification website",
+      "body": "We are working on a member identification website that will allow members to check their attendance and voting records. The website will be launched soon. Stay tuned for more updates. Developers may require additional assistance. Follow up on the group for details on joining the team.",
+      "date": "2025-07-25"
+    }
+  ]
+}

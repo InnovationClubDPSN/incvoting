@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innovation Club Member Poll</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="votescript.js"></script>
+</head>
+<body>
+<div id="side-panel" class="side-panel">
+  <button class="close-btn" onclick="togglePanel()">✖</button>
+  <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+  <strong><center>Voting Webpage</strong></center><br><br>
+  <h2>Navigation</h2>
+  <button onclick="window.location.href='index.html'">🏠 Home</button>
+  <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+  <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+  <button onclick="window.location.href='game.html'">🎮 Games</button>
+  <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+  <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">🔐 Admin</button>
+
+  <h2 style="margin-top:2rem;">Themes</h2>
+  <button onclick="setTheme('hacker')">💻 Hacker</button>
+  <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+  <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+  <button onclick="setTheme('white')">⚪ Pure White</button>
+  <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+  <br><br>
+</div>
+
+<!-- Toggle Button -->
+<div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+
+<div class="page-wrapper">
+  <div class="container">
+    <h1>INNOVATION CLUB MEMBER POLL</h1>
+    <center><h3 id="session-title" class="subtitle" style="margin-bottom: 2rem;"></h3></center>
+    <div class="top-bar">
+      <a href="rules.html" class="rules-button">View Voting Rules</a><br><br>
+    </div>
+
+    <!-- 🌐 Now using Make webhook -->
+    <form action="https://hook.eu2.make.com/1vkuqbvwy930t1pq319o6hfl8tlk6c06" method="POST" id="pollForm">
+     
+      <input type="hidden" name="session" id="session-hidden" />
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="class">Class</label>
+      <input type="text" id="class" name="class" required />
+
+      <label for="section">Section</label>
+      <input type="text" id="section" name="section" required />
+      
+      <label for="admission_number">Admission Number</label>
+      <input type="text" id="admission_number" name="admission_number" required />
+
+      <label for="vote">Your Vote</label>
+      <p id="vote-question" class="subtitle"></p>
+      <select name="vote" id="vote-dropdown" required></select>
+      <input type="hidden" name="votes" id="votes-hidden" />
+
+
+      <label for="remarks">Remarks</label>
+      <textarea id="remarks" name="remarks"></textarea>
+
+      <button type="submit" class="rules-button">SUBMIT</button>
+    </form>
+  </div>
+</div>
+
+  <div class="watermark">
+    <img src="logo.png" alt="Innovation Club Logo" />
+  </div>
+
+  <script defer src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Release notes 2.3.0</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<div id="side-panel" class="side-panel">
+  <button class="close-btn" onclick="togglePanel()">✖</button>
+  <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+  <strong><center>Voting Webpage</strong></center><br><br>
+  <h2>Navigation</h2>
+  <button onclick="window.location.href='index.html'">🏠 Home</button>
+  <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+  <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+  <button onclick="window.location.href='game.html'">🎮 Games</button>
+  <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+  <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">🔐 Admin</button>
+
+  <h2 style="margin-top:2rem;">Themes</h2>
+  <button onclick="setTheme('hacker')">💻 Hacker</button>
+  <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+  <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+  <button onclick="setTheme('white')">⚪ Pure White</button>
+  <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+  <br><br>
+</div>
+
+<!-- Toggle Button -->
+<div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+<!-- Release Notes Card -->
+<div class="page-wrapper">
+  <div class="release-card">
+    <h1>🚀 Release Notes <span class="version">v2.3.0</span></h1>
+    <p class="intro">
+      Hey Innovators! 🌟 v2.3.0 is here with solid upgrades and fixes.  
+      This update focuses on making the site more powerful, admin-friendly, and reliable. Here’s the breakdown:
+    </p>
+
+    <ul class="release-list">
+      <li>🔐 <strong>Admin Page Upgrade:</strong> Admins now get easier, central access to all key features. ⚡</li>
+      <li>📢 <strong>Dynamic Announcements:</strong> Announcements are now pulled live from a Google Sheets file instead of hardcoded JSON. 📄</li>
+      <li>🎨 <strong>Button UI Improvement:</strong> Sleeker buttons added to all themes for a consistent, modern feel. 🎀</li>
+      <li>🗳️ <strong>Voters Page:</strong> Improved design & functionality — the voters page is now fully open and ready. ✅</li>
+      <li>🌐 <strong>Webhook Fix:</strong> Added proper CORS headers to prevent those annoying “Network Error” messages. 🛡️</li>
+      <li>⌨️ <strong>Typing Effect:</strong> Added a subtle animated typing effect for headers and key text to increase visual engagement. ✨</li>
+      <li>⚙️ <strong>Full Functionality:</strong> All major modules are now working together seamlessly for smoother operation. 🔄</li>
+      <li>🧑‍💻 <strong>Upcoming:</strong> Member page is still being built — expect it in the next version. 👷‍♀️</li>
+    <li>🐞 <strong>Bug Fixes:</strong> Squashed various bugs to improve overall stability and performance. 🐛</li>
+    </ul>
+    <br>
+    <hr>
+    <br>
+    <strong>These notes cover update 2.3.0. Static & final. The next release notes will drop with version 2.4.0.</strong>
+
+    <div class="feedback-box">
+      <p>💬 Got feedback or suggestions?</p>
+      <p><strong>📞 +91 8961169640</strong></p>
+      <p><strong>📧 innovationclubdpsnewtown@gmail.com</strong></p>
+    </div>
+
+    <p class="thanks">Thanks for your continued support — let’s keep building the future together! 🚀💖</p>
+  </div>
+</div>
+
+<!-- Watermark -->
+<div class="watermark">
+  <img src="/logo.png" alt="Innovation Club Logo" />
+</div>
+<script defer src="/script.js"></script>
+
+</body>
+</html>

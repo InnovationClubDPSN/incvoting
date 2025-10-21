@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Details Not Found</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="side-panel" class="side-panel">
+  <button class="close-btn" onclick="togglePanel()">✖</button>
+  <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+  <strong><center>Voting Webpage</strong></center><br><br>
+  <h2>Navigation</h2>
+  <button onclick="window.location.href='index.html'">🏠 Home</button>
+  <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+  <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+  <button onclick="window.location.href='game.html'">🎮 Games</button>
+  <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+  <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">🔐 Admin</button>
+
+  <h2 style="margin-top:2rem;">Themes</h2>
+  <button onclick="setTheme('hacker')">💻 Hacker</button>
+  <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+  <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+  <button onclick="setTheme('white')">⚪ Pure White</button>
+  <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+  <br><br>
+</div>
+
+<!-- Toggle Button -->
+<div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+<div class="page-wrapper">
+  <div class="container" style="text-align: center;">
+    <h1>YOUR DETAILS WERE NOT FOUND IN THE MEMBERS LIST</h1>
+    <p class="subtitle" style="margin-top: 1rem;">
+      Please ensure that you entered your name, class, and admission number exactly as registered with the Innovation Club.
+      <br><br>
+      All fields are <strong>case-sensitive</strong> and must match the official records.
+      <br><br>
+      If you believe this is an error, kindly contact the club admins immediately to verify your registration.
+      <br><br>
+      ⚠️ Submissions from unregistered or mismatched entries will not be counted.
+    </p>
+    <br><br>
+    <button onclick="window.location.href='index.html'">🏠 Back to Home</button>
+  </div>
+</div>
+  <!-- Watermark -->
+  <div class="watermark">
+    <img src="logo.png" alt="Innovation Club Logo" />
+  </div>
+  <script defer src="script.js"></script>
+
+</body>
+</html>

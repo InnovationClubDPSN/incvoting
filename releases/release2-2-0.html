@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Release notes 2.2.0</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<div id="side-panel" class="side-panel">
+  <button class="close-btn" onclick="togglePanel()">✖</button>
+  <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+  <strong><center>Voting Webpage</strong></center><br><br>
+  <h2>Navigation</h2>
+  <button onclick="window.location.href='index.html'">🏠 Home</button>
+  <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+  <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+  <button onclick="window.location.href='game.html'">🎮 Games</button>
+  <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+  <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">🔐 Admin</button>
+
+  <h2 style="margin-top:2rem;">Themes</h2>
+  <button onclick="setTheme('hacker')">💻 Hacker</button>
+  <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+  <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+  <button onclick="setTheme('white')">⚪ Pure White</button>
+  <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+  <br><br>
+</div>
+
+<!-- Toggle Button -->
+<div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+<!-- Center all content like announcements.html -->
+<div class="page-wrapper",>
+  <div class="release-card">
+    <h1>🚀 Release Notes <span class="version">v2.2.0</span></h1>
+    <p class="intro">
+      Hey Innovators! 🎉 We’re super excited to roll out v2.2.0 of the voting website.  
+      Here’s what’s new, shiny, and slightly technical in this update:
+    </p>
+
+    <ul class="release-list">
+      <li>🧭 <strong>Navigation Bar:</strong> Easier navigation across pages. 🗺️</li>
+      <li>🎨 <strong>Changeable Themes:</strong> Customize your experience! 🌈</li>
+      <li>💳 <strong>Credits Shifted:</strong> Footer update coming soon. 🛠️</li>
+      <li>✨ <strong>Animations:</strong> Smooth transitions and effects. 🎁</li>
+      <li>🖼️ <strong>Background Update:</strong> Fresh gradients and visuals. 🎨</li>
+      <li>📢 <strong>Announcements Box:</strong> Moved to the new site for clarity. 📰</li>
+      <li>🚨 <strong>404 Page Optimization:</strong> Broken links now redirect gracefully, and the 404 page has a slick, informative design. 🔍</li>
+      <li>🔧 <strong>Page Under Development Notices:</strong> Pages still in progress now show clear “under development” notices so users aren’t lost. ⚠️</li>
+      <li>📝 <strong>Release Notes:</strong> Updates will now always be posted here. ⏱️</li>
+      <li>🎮 <strong>Games:</strong> Coming soon (?) 👀</li>
+      <li>💬 <strong>Feedback: </strong> Feedback box opened in the home page for member interactions. 👬 </li>
+      <li>🛠️ <strong>Bug Fixes:</strong> Various under-the-hood improvements for a smoother experience. 🐞</li>
+      <li>❓ <strong>Help box: </strong> Added webpage with tips, help info and FAQs. 💁‍♂️ </li>
+      <li>🧑 <strong>Upcoming:</strong> <span class="highlight">Member Identification Website</span> —  
+        check attendance & voting soon! 👩‍💻</li>
+    </ul>
+    <br>
+    <hr>
+    <br>
+    <strong>Please note that this is the notes for update 2.2.0. It is static and will not be subject to change. The next notes will be released with version 2.3.0.</strong>
+
+    <div class="feedback-box">
+      <p>💬 Feedback & suggestions?</p>
+      <p><strong>📞 +91 8961169640</strong></p>
+      <p><strong>📧 innovationclubdpsnewtown@gmail.com</strong></p>
+    </div>
+
+    <p class="thanks">Thanks for being awesome and helping us improve every day! 💖</p>
+  </div>
+</div>
+
+
+<!-- Watermark -->
+<div class="watermark">
+  <img src="/logo.png" alt="Innovation Club Logo" />
+</div>
+<script defer src="/script.js"></script>
+
+</body>
+</html>

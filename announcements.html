@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-y: auto; overflow-x: hidden;">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="icon" type="image/png" href="logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Innovation Club Voting</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="side-panel" class="side-panel">
+  <button class="close-btn" onclick="togglePanel()">✖</button>
+  <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+  <strong><center>Voting Webpage</strong></center><br><br>
+  <h2>Navigation</h2>
+  <button onclick="window.location.href='index.html'">🏠 Home</button>
+  <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+  <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+  <button onclick="window.location.href='game.html'">🎮 Games</button>
+  <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+  <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">🔐 Admin</button>
+
+  <h2 style="margin-top:2rem;">Themes</h2>
+  <button onclick="setTheme('hacker')">💻 Hacker</button>
+  <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+  <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+  <button onclick="setTheme('white')">⚪ Pure White</button>
+  <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+  <br><br>
+</div>
+
+  <!-- Toggle Button -->
+  <div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+  <div class="watermark">
+    <img src="logo.png" alt="Innovation Club Logo" />
+  </div>
+
+  <!-- Main Content Centered -->
+  <div class="page-wrapper">
+    <div class="container">
+      <div class="announcement-box">
+        <h3>📢 Announcements</h3>
+        <div class="announcement-warning" style="color:#ff0000; background:rgba(0,0,0,0.15); padding:8px 14px; border-radius:8px; margin-bottom:16px; font-size:1em;">
+          ⚠️ Announcements may take up to 1 minute to load. Please be patient.
+        </div>
+        <div class="announcement-list" id="announcement-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    fetch("https://script.google.com/macros/s/AKfycbzT8rRuVcwXQA0E_Zk94b2erisHyg56bba5F9ChjwjaWwduPEsxcvPo6YhFP77KqVpl/exec")
+      .then((res) => res.json())
+      .then((data) => {
+        const container = document.getElementById("announcement-list");
+        const announcements = data.announcements.slice().reverse();
+        announcements.forEach((item) => {
+          const div = document.createElement("div");
+          div.className = "announcement-item";
+          const header = document.createElement("div");
+          header.className = "announcement-header";
+          const title = document.createElement("h4");
+          title.textContent = item.title;
+          const date = document.createElement("span");
+          date.className = "announcement-date";
+          const formattedDate = new Date(item.date).toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+          });
+          date.textContent = formattedDate;
+          header.appendChild(title);
+          header.appendChild(date);
+          const body = document.createElement("div");
+          body.innerHTML = marked.parse(item.body);
+          div.appendChild(header);
+          div.appendChild(body);
+          container.appendChild(div);
+        });
+      })
+      .catch((err) => {
+        console.error("Error loading announcements:", err);
+      });
+  </script>
+  <script defer src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voting Rules – Innovation Club</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Voting rules card styling */
+    .rules-card {
+      background: rgba(10, 10, 30, 0.95);
+      border: 2px solid #00ffff;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      color: #e0e0e0;
+      animation: fadeSlideUp 0.8s ease forwards;
+    }
+
+    .rules-card h1 {
+      font-size: 2.8rem;
+      color: #ff0010;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .rules-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .rules-card li {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .rules-card li .emoji {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+    .rules-card li strong {
+      color: #00ffff;
+      font-size: 1.1rem;
+    }
+
+    .rules-card p {
+      margin: 0.3rem 0 0 2rem;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .rules-card .subtitle {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #aaa;
+    }
+
+    /* Fade + slide up animation */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="side-panel" class="side-panel">
+  <button class="close-btn" onclick="togglePanel()">✖</button>
+  <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+  <strong><center>Voting Webpage</strong></center><br><br>
+  <h2>Navigation</h2>
+  <button onclick="window.location.href='index.html'">🏠 Home</button>
+  <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+  <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+  <button onclick="window.location.href='game.html'">🎮 Games</button>
+  <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+  <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">🔐 Admin</button>
+
+  <h2 style="margin-top:2rem;">Themes</h2>
+  <button onclick="setTheme('hacker')">💻 Hacker</button>
+  <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+  <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+  <button onclick="setTheme('white')">⚪ Pure White</button>
+  <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+  <br><br>
+</div>
+
+<div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+<div class="page-wrapper">
+  <div class="rules-card">
+    <h1>🗳 Voting Rules & Guidelines</h1>
+    <ul>
+      <li>
+        <span class="emoji">❌</span><strong>Do not share the form link.</strong>
+        <p>The link is uniquely traceable. Sharing it may result in multiple unauthorized submissions, and anyone found doing so will be disqualified from current and future club activities.</p>
+      </li>
+      <li>
+        <span class="emoji">1️⃣</span><strong>Only one submission per person is allowed.</strong>
+        <p>Attempting to vote multiple times violates the fairness of the election and will result in immediate disqualification.</p>
+      </li>
+      <li>
+        <span class="emoji">🔒</span><strong>Do not use keyboard shortcuts like Ctrl+I or similar.</strong>
+        <p>Inspecting, modifying, or attempting to interfere with the page's code or appearance is strictly forbidden. Any such behavior is a serious breach of trust.</p>
+      </li>
+      <li>
+        <span class="emoji">📋</span><strong>Your submission must be in the official club database.</strong>
+        <p>If your name, class, or admission number does not match the club’s internal database, your vote will be considered invalid.</p>
+      </li>
+      <li>
+        <span class="emoji">⚠️</span><strong>Use of macros, autofill tools, or automation is strictly prohibited.</strong>
+        <p>All responses must be submitted manually. Automation compromises the integrity of the poll.</p>
+      </li>
+      <li>
+        <span class="emoji">❗</span><strong>Do not falsify information.</strong>
+        <p>Entering fake names or admission numbers will lead to disqualification. All data is verified after submission.</p>
+      </li>
+      <li>
+        <span class="emoji">🤝</span><strong>Respect the voting process.</strong>
+        <p>The poll is designed to be transparent and fair. Any attempts to manipulate results will result in disciplinary action.</p>
+      </li>
+      <li>
+        <span class="emoji">✅</span><strong>Submit only when you're sure of your vote.</strong>
+        <p>There is no way to undo or change your response once it has been submitted. Make your choice carefully.</p>
+      </li>
+    </ul>
+    <p class="subtitle">💬 Questions? Contact a club administrator before submitting: <a href="mailto:innovationclubdpsnewtown@gmail.com">innovationclubdpsnewtown@gmail.com</a></p>
+    <p class="subtitle">🙏 Thank you for your understanding and cooperation!</p>
+    <p class="subtitle">🔔 Please follow all voting rules to maintain the integrity of the poll.</p>
+    <br><br>
+    <button onclick="window.location.href='index.html'">🏠 Back to Home</button>
+  </div>
+</div>
+
+<!-- Watermark -->
+<div class="watermark">
+  <img src="logo.png" alt="Innovation Club Logo" />
+</div>
+
+<script defer src="script.js"></script>
+</body>
+</html>

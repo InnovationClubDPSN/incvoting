@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback & Credits</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .credits {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="side-panel" class="side-panel">
+  <button class="close-btn" onclick="togglePanel()">✖</button>
+  <h1 style="font-size: 1.5em"><center>Innovation Club</h1></center>
+  <strong><center>Voting Webpage</strong></center><br><br>
+  <h2>Navigation</h2>
+  <button onclick="window.location.href='index.html'">🏠 Home</button>
+  <button onclick="window.location.href='vote.html'">🗳 Vote</button>
+  <button onclick="window.location.href='addmember.html'">➕ Add Member</button>
+  <button onclick="window.location.href='game.html'">🎮 Games</button>
+  <button onclick="window.location.href='announcements.html'">📢 Announcements</button>
+  <button onclick="window.location.href='admin.html'" style="font-size: 1rem; padding: 0.6rem 1.2rem; background-color: #0b0f2a; border: 3px solid #ff0010; color: #ff0010;">🔐 Admin</button>
+
+  <h2 style="margin-top:2rem;">Themes</h2>
+  <button onclick="setTheme('hacker')">💻 Hacker</button>
+  <button onclick="setTheme('cyberpunk')">⚡ Cyberpunk</button>
+  <button onclick="setTheme('abyss')">🌊 Sea blue</button>
+  <button onclick="setTheme('white')">⚪ Pure White</button>
+  <button onclick="setTheme('darkblack')">🌑 Dark Black</button>
+  <br><br>
+</div>
+
+<div class="panel-toggle" onclick="togglePanel()">☰</div>
+
+
+  <div class ="page-wrapper">
+  <div class="container">
+    <h1>💬 Feedback</h1>
+    <center><strong style="align-content: center;">We value your thoughts. Share your ideas, give suggestions, report issues, or ask questions below</strong>
+    <p style="margin-top: 1rem; align-content: center;">Your feedback helps us improve and create a better experience for everyone. Your questions will be added to FAQs. Thank you for being part of our community!</p>
+</center>
+    <div class="feedback-box">
+      <p>💬 Feedback & suggestions?</p>
+      <p><strong>📞 +91 8961169640</strong></p>
+      <p><strong>📧 innovationclubdpsnewtown@gmail.com</strong></p>
+    </div>
+
+    <div class="credits">
+      <p>✨ <strong>Credits</strong></p>
+      <p>Developed by <strong>Innovation Club Members 2K25</strong></p>
+      <ul>
+        <li>Satyaki Bandopadhyay</li>
+        <li>Ridit Jana</li>
+        <li>Aryaman Ghosh</li>
+        <li>Satvik Roy</li>
+      </ul>
+      <p>Special thanks to all contributors & testers</p>
+      <p>Version 2.2.0</p>
+    </div>
+  </div>
+  </div>
+  <script src="script.js"></script>
+
+  <div class="watermark">
+    <img src="logo.png" alt="Innovation Club Logo" />
+  </div>
+
+</body>
+</html>
